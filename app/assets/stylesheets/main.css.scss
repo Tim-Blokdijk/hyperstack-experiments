@@ -1,0 +1,132 @@
+
+$background-color: #f2f2f2;
+$font-color: rgb(2, 68, 87);
+$link-color: rgb(0, 182, 150);
+$alt-link-color: rgb(79, 214, 108);
+
+$primary-color: rgb(119, 180, 184);
+$secondary-color: rgb(69, 178, 157);
+$offset-color: rgb(178, 202, 167);
+$alert-color: red;
+$change-color: orange;
+$cancel-color: blue;
+
+
+//9ae3ee
+
+body {
+  padding: 0 2em;
+  font-family: ubuntu;
+  color: $font-color;
+  background: $background-color;
+}
+
+h1 {
+  font-family: ubuntu;
+  font-weight: normal;
+  color: darken($font-color, 10%);
+
+  a:link, a:visited {
+    color: darken($link-color, 5%);
+  }
+
+  a:hover, a:active {
+    color: darken($alt-link-color, 5%);
+  }
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: $link-color;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+  color: $alt-link-color;
+}
+
+.toolbar {
+  background-color: $primary-color;
+  padding-top: 14px;
+  padding-right: 6px;
+  padding-bottom: 14px;
+  padding-left: 6px;
+  border-radius: 6px;
+  border:2px solid darken($primary-color, 10%);
+}
+
+/*
+table {
+  background-color: #72559b
+}
+
+table th {
+  background-color: #c47acf
+}
+
+table tr:nth-child(even) {
+  background-color: #ababf0
+}
+
+table tr:nth-child(odd) {
+  background-color: #bcc8ff
+}
+*/
+
+
+
+// OLD OLD OLD
+
+
+.score .score_list {
+  display: none;
+}
+
+.score:hover .score_list {
+  display: block
+}
+
+.left {
+  width: 200px;
+  float: left;
+}
+
+.right {
+  width: 1400px;
+  float: left;
+}
+
+.vorige {
+  width: 100px;
+  float: left;
+}
+
+.volgende {
+  width: 100px;
+  float: right;
+}
+
+.item {
+  margin: 5px;
+}
+
+.item:nth-child(even) {
+  background-color: #ababf0
+}
+
+.item:nth-child(odd) {
+  background-color: #bcc8ff
+}
+
+.interessant {
+  background-color: pink !important
+}
+
+.nee {
+  background-color: #3E3D72 !important
+}
+
+.niet {
+  background-color: #4E4D82 !important;
+  font-size: 5px;
+}
