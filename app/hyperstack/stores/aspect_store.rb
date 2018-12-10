@@ -1,4 +1,5 @@
-class AspectStore < Hyperstack::Store
+class AspectStore
+  include Hyperstack::Legacy::Store
 
   state age_criteria: [
     [16, 22, 'te jong', nil],
@@ -20,7 +21,7 @@ class AspectStore < Hyperstack::Store
 
   receives AgeOperations::Send do |params|
     puts "receiving Operations::Send(#{params})"
-    #mutate.slider_values params.leeftijd
+    mutate.age_criteria params.age_criteria unless params.age_criteria.nil?
   end
 
 end

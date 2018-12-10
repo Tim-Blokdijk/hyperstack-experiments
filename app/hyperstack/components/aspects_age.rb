@@ -42,7 +42,7 @@ class AspectsAge < HyperComponent
             AspectStore.mutate.age_criteria.insert(index, [AspectStore.state.age_criteria[index][0], new_age, AspectStore.state.age_criteria[index][2], AspectStore.state.age_criteria[index][3]])
             AspectStore.mutate.age_criteria[index + 1][0] = new_age + 1
 
-            AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+            AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
           }
           SPAN(style: {paddingRight: '10px'}){'Score:'}
           INPUT(type: 'checkbox', checked: (criteria[3].blank?)).on(:change) do |event|
@@ -52,13 +52,13 @@ class AspectsAge < HyperComponent
             else
               AspectStore.mutate.age_criteria[index][3] = nil
             end
-            AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+            AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
           end
           if criteria[3].present?
             INPUT(disabled: criteria[3].blank?, style: {width: '67px', marginRight: '10px'},type: 'number', value: criteria[3]).on(:change) do |event|
               event.prevent_default
               AspectStore.mutate.age_criteria[index][3] = event.target.value
-              AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+              AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
             end
             STYLE do
               if criteria[3].to_i > 0
@@ -77,7 +77,7 @@ class AspectsAge < HyperComponent
           INPUT(value: criteria[2], style: {marginRight: '10px'}).on(:change) do |event|
             event.prevent_default
             AspectStore.mutate.age_criteria[index][2] = event.target.value
-            AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+            AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
           end
           #SPAN(style: {paddingRight: '10px'}){'Verwijderen:'}
           BUTTON{'✘'}.on(:click) do |event|
@@ -93,7 +93,7 @@ class AspectsAge < HyperComponent
               AspectStore.mutate.age_criteria.delete_at(index)
               AspectStore.mutate.age_criteria[index][0] = age
             end
-            AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+            AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
           end
         end
       end
@@ -139,7 +139,7 @@ class AspectsAge < HyperComponent
           AspectStore.mutate.age_criteria[index + 1][0] = (age + 1)
         end
         puts 'slider change'
-        AgeOperations::Send(age_criteria: AspectStore.state.age_criteria)
+        AgeOperations::Send.run(age_criteria: AspectStore.state.age_criteria)
       end
     })
 
