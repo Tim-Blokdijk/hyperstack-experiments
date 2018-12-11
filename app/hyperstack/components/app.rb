@@ -5,7 +5,7 @@ class App < HyperComponent
     @search_profile = @client.search_profiles.first
   end
 
-  render do
+  render(DIV) do
     H2 { 'Criteria' }
 
     TABLE(class: :responstable) do
@@ -22,12 +22,12 @@ class App < HyperComponent
       TBODY do
         @search_profile.criteria.each do |criterium| # .order(score: :desc)
           TR do
-            TD { criterium.id }
-            TD { criterium.select }
-            TD { criterium.score }
+            TD { criterium.id.to_s }
+            TD { criterium.select.inspect }
+            TD { criterium.score.to_s }
             TD { criterium.rationale }
-            TD { criterium.active }
-            TD { (criterium.aspect ? criterium.aspect.id : 'nill') }
+            TD { criterium.active.to_s }
+            TD { (criterium.aspect ? criterium.aspect.id.to_s : 'nill') }
           end
         end
       end
@@ -35,4 +35,3 @@ class App < HyperComponent
   end
 
 end
-
