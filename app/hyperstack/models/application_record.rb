@@ -23,10 +23,10 @@ module ActiveRecord
         # https://github.com/hyperstack-org/hyperstack/issues/89
         if macro == :belongs_to
           Hyperstack::Component::IsomorphicHelpers.log "**** warning dynamically adding relationship: #{klass}.has_many :#{@owner_class.name.underscore.pluralize}, foreign_key: #{@association_foreign_key}", :warning
-          klass.has_many @owner_class.underscore.pluralize, foreign_key: @association_foreign_key
+          klass.has_many @owner_class.name.underscore.pluralize, foreign_key: @association_foreign_key
         else
           Hyperstack::Component::IsomorphicHelpers.log "**** warning dynamically adding relationship: #{klass}.belongs_to :#{@owner_class.name.underscore}, foreign_key: #{@association_foreign_key}", :warning
-          klass.belongs_to @owner_class.underscore, foreign_key: @association_foreign_key
+          klass.belongs_to @owner_class.name.underscore, foreign_key: @association_foreign_key
         end
       end
     end
