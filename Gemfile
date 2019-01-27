@@ -64,8 +64,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpacker'
-gem 'rails-hyperstack', '~> 1.0.alpha'
-gem 'hyper-store', '1.0.alpha1.2'
+gem 'rails-hyperstack', '~> 1.0.alpha1'
 gem 'hyper-trace', '~> 1.0.alpha1', group: :development
 group :development do
   gem 'foreman'
