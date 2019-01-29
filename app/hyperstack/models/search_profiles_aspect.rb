@@ -1,4 +1,4 @@
-class SearchProfileAspect < ApplicationRecord
+class SearchProfilesAspect < ApplicationRecord
 
   belongs_to :search_profile
   belongs_to :aspect

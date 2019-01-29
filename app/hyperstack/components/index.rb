@@ -55,8 +55,16 @@ class Index < HyperComponent
           }
           if @client.search_profiles.include? search_profile #.new_record? # is not implemented..
             DIV { Link("/search/#{search_profile.id}", active_class: :selected) { 'Show' } }
-            DIV do A { 'Delete' }.on(:click) {
-              search_profile.destroy if confirm('Are you sure you wan\'t to delete this search profile?') }
+            DIV do A { 'Delete' }
+              .on(:click) do
+                search_profile.destroy if confirm('Are you sure you wan\'t to delete this search profile?')
+                if search_profile.destroyed?
+                  alert('SearchProfile is destroyed!')
+                else
+                  alert('SearchProfile is still here!')
+                end
+                alert(search_profile.errors[:base].to_s)
+              end
             end unless search_profile.id == 1
           end
         end
