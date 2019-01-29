@@ -64,8 +64,17 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpacker'
-gem 'rails-hyperstack', '~> 1.0.alpha1'
-gem 'hyper-trace', '~> 1.0.alpha1', group: :development
-group :development do
-  gem 'foreman'
+
+git 'https://github.com/hyperstack-org/hyperstack', branch: 'edge', glob: 'ruby/*/*.gemspec' do
+  gem 'rails-hyperstack'
+  gem 'hyper-component'
+  gem 'hyper-i18n'
+  gem 'hyper-model'
+  gem 'hyper-operation'
+  gem 'hyper-router'
+  gem 'hyper-state'
+  gem 'hyperstack-config'
+  gem 'hyper-trace', group: :development
 end
+
+gem 'foreman', group: :development
